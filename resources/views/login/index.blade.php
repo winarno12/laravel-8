@@ -4,6 +4,12 @@
         <div class="col-5">
             <main class="form-signin">
                 <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <form>
                     <div class="form-floating">
                         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -15,7 +21,7 @@
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
                 </form>
-                <small class="d-block text-center mt-1">Not Regiter <a href="/register">Register Now</a></small>
+                <small class="d-block text-center mt-1">Have Account <a href="/register">Login Now</a></small>
             </main>
         </div>
     </div>
