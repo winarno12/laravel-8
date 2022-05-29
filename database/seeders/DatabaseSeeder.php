@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'name'  => 'Ipa',
             'slug'  => 'ipa'
         ]);
-        post::factory(1000)->create();
+        post::factory(5)->create();
         // Post::create([
         //     'title'     => 'Judul Pertama',
         //     'slug'      => 'judul-pertama',
