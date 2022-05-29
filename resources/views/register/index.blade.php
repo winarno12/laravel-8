@@ -51,7 +51,7 @@
                     </div>
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Sign in</button>
                 </form>
-                <small class="d-block text-center mt-3">Not Regiter <a href="/register">Register Now</a></small>
+                <small class="d-block text-center mt-1">Have Account <a href="/login">Login Now</a></small>
             </main>
         </div>
     </div>
