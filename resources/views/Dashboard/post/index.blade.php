@@ -4,7 +4,7 @@
         <h1 class="h2">My Post</h1>
     </div>
     <div class="col-8">
-
+        <a href="/dashboard/post/create" class="btn btn-primary btn-sm mb-3">Create New Post</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -21,9 +21,12 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td>
-                            <a href="/dashboard/post/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye-fill"></i></a>
-                            <a href="/dasboard/posts/{{ $post->id }}" class="badge bg-warning"><i class="bi bi-pencil-square"></i></a>
-                            <a href="/dasboard/posts/{{ $post->id }}" class="badge bg-danger"><i class="bi bi-x-lg"></i></a>
+                            <a href="/dashboard/post/{{ $post->slug }}" class="badge bg-info"><i
+                                    class="bi bi-eye-fill"></i></a>
+                            <a href="/dasboard/posts/{{ $post->id }}" class="badge bg-warning"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a href="/dasboard/posts/{{ $post->id }}" class="badge bg-danger"><i
+                                    class="bi bi-x-lg"></i></a>
                         </td>
                     </tr>
                 @endforeach

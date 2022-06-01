@@ -10,7 +10,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\User;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,4 +82,5 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 // Router
+Route::get('/dashboard/post/checkSlug', [DashboardPostController::class, 'checkSlug']);
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');

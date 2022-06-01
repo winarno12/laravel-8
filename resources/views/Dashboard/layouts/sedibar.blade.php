@@ -9,7 +9,7 @@
                  </a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link {{ Request::is('dashboard/post') ? 'active' : '' }}" href="/dashboard/post">
+                 <a class="nav-link {{ Request::is('dashboard/post*') ? 'active' : '' }}" href="/dashboard/post">
                      <i class="bi bi-dice-5-fill"></i>
                      My Post
                  </a>
@@ -17,3 +17,6 @@
          </ul>
      </div>
  </nav>
+
+
+
