@@ -6,7 +6,8 @@
                 <h1 class="my-3">{{ $post->title }}</h1>
                 <a href="/dashboard/post" class="btn btn-success btn-sm mb-2"><i class="bi bi-arrow-left"></i>Back To
                     MyPost</a>
-                <a href="" class="btn btn-warning btn-sm mb-2"><i class="bi bi-arrow-left"></i>Update</a>
+                <a href="/dashboard/post/{{ $post->slug }}/edit" class="btn btn-warning btn-sm mb-2"><i
+                        class="bi bi-arrow-left"></i>Update</a>
                 <form action="/dashboard/post/{{ $post->slug }}" class="d-inline" method="POST">
                     @method('DELETE')
                     @csrf
@@ -14,8 +15,8 @@
                         onclick="return confirm('Are you sure you want to delete this item?');"><i
                             class="
                         bi bi-x-lg""></i>Delete</button>
-                                                    </form>
-                                <img src=" https://source.unsplash.com/1200x400?{{ $post->category->name }}"
+                                                        </form>
+                                    <img src=" https://source.unsplash.com/1200x400?{{ $post->category->name }}"
                             class="img-fluid" alt="{{ $post->category->name }}">
                             <article class="my-3 fs-5">
                                 {!! $post->body !!}

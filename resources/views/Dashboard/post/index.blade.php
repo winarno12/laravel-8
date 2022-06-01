@@ -34,10 +34,10 @@
                                     onclick="return confirm('Are you sure you want to delete this item?');"><i
                                         class="
                                     bi bi-x-lg""></i></button>
-                                                </form>
-                                                <a href=" /dashboard/post/{{ $post->slug }}" class="badge bg-info"><i
-                                            class="bi bi-eye-fill"></i></a>
-                                        <a href="/dasboard/posts/{{ $post->id }}" class="badge bg-warning"><i
+                                                        </form>
+                                                        <a href=" /dashboard/post/{{ $post->slug }}"
+                                        class="badge bg-info"><i class="bi bi-eye-fill"></i></a>
+                                        <a href="/dashboard/post/{{ $post->slug }}/edit" class="badge bg-warning"><i
                                                 class="bi bi-pencil-square"></i></a>
 
                         </td>
