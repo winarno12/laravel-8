@@ -3,6 +3,12 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">My Post</h1>
     </div>
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @else
+    @endif
     <div class="col-8">
         <a href="/dashboard/post/create" class="btn btn-primary btn-sm mb-3">Create New Post</a>
         <table class="table table-striped table-sm">
