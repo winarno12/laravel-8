@@ -18,6 +18,9 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
+        // // dd('okee');
+        // echo "dhsdh";
+        // exit;
         // return (post::where('user_id', auth()->user()->id)->get());
         return view('dashboard.post.index', [
             'posts' => post::where('user_id', auth()->user()->id)->get()
@@ -44,6 +47,8 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->file('image')->store('post-images');
+        ddd($request);
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
@@ -66,7 +71,7 @@ class DashboardPostController extends Controller
      */
     public function show(post $post)
     {
-        return view('dashboard.post.show', [
+        return view('Dashboard.post.show', [
             'post' => $post
         ]);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\post as ModelsPost;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StorePostRequest;
 // use App\Http\Requests\UpdatePostRequest;
@@ -11,10 +12,11 @@ class PostController extends Controller
 {
     public function index()
     {
+        // return 'okee';
         return view('posts', [
             "title" => "ALL Post",
             // "posts" => Post::all()
-            "posts" => Post::latest()->get(),
+            "posts" => ModelsPost::latest()->get(),
             "active" => 'posts'
         ]);
     }

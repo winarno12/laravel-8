@@ -13,7 +13,7 @@
         </div>
     @endif
     <div class="col-lg-8">
-        <form action="/dashboard/post" method="POST" class="mb-5">
+        <form action="/dashboard/post" method="POST" enctype="multipart/form-data" class="mb-5">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -51,6 +51,10 @@
                 <input id="body" value="{{ old('body') }}" type="hidden" name="body">
                 <trix-editor input="body"></trix-editor>
             </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Post Image</label>
+                <input class="form-control" type="file" id="image" name="image">
+              </div>
             <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
 
