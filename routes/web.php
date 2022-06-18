@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\PostController;
@@ -84,3 +85,6 @@ Route::get('/dashboard', function () {
 // Router
 Route::get('/dashboard/post/checkSlug', [DashboardPostController::class, 'checkSlug']);
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/category', AdminCategoryController::class)->except('show')->middleware('admin');
+// Route::resource('/dashboard/category', AdminCategoryController::class)->except('show');
+// kucuali
