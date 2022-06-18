@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\post;
+
+// use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,11 +25,12 @@ class DatabaseSeeder extends Seeder
         //     'password'  => bcrypt('12345')
         // ]);
 
-        // User::create([
-        //     'name'  =>  'Salma',
-        //     'email' => 'salma@gmail.com',
-        //     'password'  => bcrypt('12345')
-        // ]);
+        User::create([
+            'name'  =>  'Salma',
+            'username' => 'salma',
+            'email' => 'salma@gmail.com',
+            'password'  => bcrypt('12345')
+        ]);
 
         User::factory(5)->create();
         Category::create([
@@ -43,7 +46,8 @@ class DatabaseSeeder extends Seeder
             'name'  => 'Ipa',
             'slug'  => 'ipa'
         ]);
-        post::factory(5)->create();
+        post::factory(3)->create();
+        // post::factory(5)->create();
         // Post::create([
         //     'title'     => 'Judul Pertama',
         //     'slug'      => 'judul-pertama',

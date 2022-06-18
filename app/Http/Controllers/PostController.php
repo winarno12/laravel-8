@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\post as ModelsPost;
+// use App\Models\Post;
+use App\Models\post;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StorePostRequest;
 // use App\Http\Requests\UpdatePostRequest;
@@ -16,12 +16,12 @@ class PostController extends Controller
         return view('posts', [
             "title" => "ALL Post",
             // "posts" => Post::all()
-            "posts" => ModelsPost::latest()->get(),
+            "posts" => post::latest()->get(),
             "active" => 'posts'
         ]);
     }
 
-    public function show(Post $post)
+    public function show(post $post)
     {
         return view('post', [
             "title" => "Single Post",

@@ -15,12 +15,19 @@
                         onclick="return confirm('Are you sure you want to delete this item?');"><i
                             class="
                         bi bi-x-lg""></i>Delete</button>
-                                                        </form>
-                                    <img src=" https://source.unsplash.com/1200x400?{{ $post->category->name }}"
-                            class="img-fluid" alt="{{ $post->category->name }}">
-                            <article class="my-3 fs-5">
-                                {!! $post->body !!}
-                            </article>
+                </form>
+                @if ($post->image)
+                    <div style="max-height: 350px ;overflow: hidden;">
+                        <img src="{{ asset('/storage/' . $post->image) }}" class="img-fluid"
+                            alt="{{ $post->category->name }}">
+                    </div>
+                @else
+                    <img src=" https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid"
+                        alt="{{ $post->category->name }}">
+                @endif
+                <article class="my-3 fs-5">
+                    {!! $post->body !!}
+                </article>
             </div>
         </div>
     </div>

@@ -13,13 +13,15 @@
         </div>
     @endif
     <div class="col-lg-8">
-        <form action="/dashboard/post/{{ $post->slug }}" method="POST" class="mb-5">
+        <form action="/dashboard/post/{{ $post->slug }}" method="POST" class="mb-5" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            {{-- old image hiden --}}
+            <input type="text" name="oldimage" value="{{ $post['image'] }}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    value="{{ old('slug', $post->title) }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" value="{{ old('slug', $post->title) }}">
                 @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -52,6 +54,20 @@
                 <input id="body" value="{{ old('body', $post->body) }}" type="hidden" name="body">
                 <trix-editor input="body"></trix-editor>
             </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Post Image</label>
+                @if ($post->body)
+                    <img src="{{ asset('/storage/' . $post->image) }}"
+                        class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img alt="" class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+                <input class="form-control  @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Update Post</button>
         </form>
 
@@ -68,5 +84,20 @@
         // document.addEventListener('trix-file-accept', function(e) {
         //     e.preventDefault();
         // })
+
+        function previewImage() {
+            const img = document.querySelector('#image');
+            const imgpreview = document.querySelector('.img-preview');
+            // alert(img)
+            imgpreview.style.display = 'block';
+            // console.log(imgpreview);
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgpreview.src = oFREvent.target.result
+            }
+        }
     </script>
+
 @endsection
